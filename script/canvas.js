@@ -4,17 +4,22 @@ const canvas = document.getElementById("gameCanvas");
 // 2D-Zeichenkontext: damit zeichnen wir auf dem Canvas
 const ctx = canvas.getContext("2d");
 
-// --- Rechteck ---
-ctx.fillStyle = "blue";           // Füllfarbe auf Blau setzen
-ctx.fillRect(100, 100, 100, 50);  // Rechteck zeichnen: x, y, Breite, Höhe
 
-// --- Kreis ---
-ctx.beginPath();                            // neuen Zeichenpfad starten damit der nicht mit dem Rechteck verbunden ist
-ctx.arc(300, 200, 30, 0, Math.PI * 2);      // Kreis: Mitte (300,200), Radius 30, voller Kreis (0 bis 2π)
-ctx.fillStyle = "Yellow";                   // Füllfarbe auf Gelb setzen
-ctx.fill();                                 // aktuellen Pfad (den Kreis) ausfüllen
+function zeichne() {
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // Hintergrund, sonst ist weißer Text unsichtbar
 
-// --- Text ---
-ctx.font = "30px Arial";                    // Schriftgröße und Schriftart setzen
-ctx.fillStyle = "white";                    // Textfarbe auf Weiß setzen
-ctx.fillText("Hallo Canvas", 100, 50);      // Text an Position (x=100, y=50) zeichnen
+   
+    ctx.fillStyle = "blue";// spieler werte (kommen aus script.js)
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    
+    ctx.beginPath();//kreise werte (kommen aus scipt.js)
+    ctx.arc(star.x + star.size / 2, star.y + star.size / 2, star.size / 2, 0, Math.PI * 2);
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    
+
+    
+}
