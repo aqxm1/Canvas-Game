@@ -19,7 +19,21 @@ function zeichne() {
     ctx.fillStyle = "yellow";
     ctx.fill();
 
-    
+    // Punkte und Leben (Werte kommen aus script.js)
+    ctx.font = "24px Arial";
+    ctx.fillStyle = "white";
+    ctx.textAlign = "left";
+    ctx.fillText("Punkte: " + punkte, 20, 35);
+    ctx.fillText("Leben: " + leben, 20, 70);
 
-    
+    // Game Over
+    if (leben <= 0) {
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.font = "50px Arial";
+        ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2);
+        ctx.font = "24px Arial";
+        ctx.fillText("Deine Punkte: " + punkte, canvas.width / 2, canvas.height / 2 + 45);
+        ctx.textAlign = "left";
+    }
 }
